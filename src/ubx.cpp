@@ -1679,7 +1679,7 @@ GPSDriverUBX::activateRTCMOutput()
 	if (_proto_ver_27_or_higher) {
 		int cfg_valset_msg_size = initCfgValset();
 
-		cfgValset<uint16_t>(UBX_CFG_KEY_RATE_MEAS, 1000, cfg_valset_msg_size);
+		cfgValset<uint16_t>(UBX_CFG_KEY_RATE_MEAS, 250, cfg_valset_msg_size);
 		cfgValsetPort(UBX_CFG_KEY_MSGOUT_RTCM_3X_TYPE1005_I2C, 5, cfg_valset_msg_size);
 		cfgValsetPort(UBX_CFG_KEY_MSGOUT_RTCM_3X_TYPE1077_I2C, 1, cfg_valset_msg_size);
 		cfgValsetPort(UBX_CFG_KEY_MSGOUT_RTCM_3X_TYPE1087_I2C, 1, cfg_valset_msg_size);
@@ -1699,7 +1699,7 @@ GPSDriverUBX::activateRTCMOutput()
 	} else {
 
 		memset(&_buf.payload_tx_cfg_rate, 0, sizeof(_buf.payload_tx_cfg_rate));
-		_buf.payload_tx_cfg_rate.measRate	= 1000;
+		_buf.payload_tx_cfg_rate.measRate	= 250;
 		_buf.payload_tx_cfg_rate.navRate	= UBX_TX_CFG_RATE_NAVRATE;
 		_buf.payload_tx_cfg_rate.timeRef	= UBX_TX_CFG_RATE_TIMEREF;
 
